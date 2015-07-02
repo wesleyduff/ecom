@@ -1,0 +1,116 @@
+<dom-module id="ecom-product">
+
+  <style>
+    /* CSS rules for your element */
+    :host {
+        position:relative;
+        color:red;
+        display:block;
+    }
+    /*=============================================================
+    Authour URL: www.designbootstrap.com
+    
+    http://www.designbootstrap.com/
+
+    License: MIT     
+========================================================  */
+
+.db-pricing-seven {
+    margin-bottom: 30px;
+    margin-top: 30px;
+    text-align: center;
+    border: 1px solid #C5C2C2;
+    background-color: #EDEDED;
+}
+
+    .db-pricing-seven:hover {
+        margin-top: 5px;
+        -moz-transition: margin-top 0.25s ease 0s;
+        -ms-transition: margin-top 0.25s ease 0s;
+        transition: margin-top 0.25s ease 0s;
+    }
+
+    .db-pricing-seven ul {
+        list-style: none;
+        margin: 0;
+        text-align: center;
+        padding-left: 0px;
+    }
+
+        .db-pricing-seven ul li {
+            border-bottom: solid 1px #D8D8D8;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+            .db-pricing-seven ul li.price {
+                background-color: #fff;
+                padding: 40px 20px 20px 20px;
+                font-size: 20px;
+                font-weight: 900;
+                color: #353c3e;
+                font-weight: 900;
+            }
+
+                .db-pricing-seven ul li.price i {
+                    padding: 30px;
+                    font-size: 50px;
+                    display: block;
+                }
+
+
+    .db-pricing-seven .pricing-footer {
+        padding: 20px;
+    }
+
+        .db-pricing-seven .pricing-footer a i {
+            margin: 5px;
+            top: 3px;
+        }
+  </style>
+  
+  <template>
+        <div class="db-pricing-seven">
+            <ul>
+                <li class="price">
+                    <i class="glyphicon glyphicon-qrcode"></i>
+                    BASIC - $<span>{{price}}</span>
+                </li>
+                <li>{{title}}</li>
+            </ul>
+            <div class="pricing-footer">
+
+                <a href="/no_javascript.html" class="btn btn-default btn-lg">BUY <i class="glyphicon glyphicon-play-circle"></i></a>
+                
+            </div>
+        </div>
+    </template>
+
+  <script>
+    // element registration
+    Polymer({
+      is: "ecom-product",
+      ready : function(){
+          console.log('staring');
+          var self = this;
+          this.$$('.pricing-footer a').addEventListener('click', function(e){
+              e.preventDefault();
+             self.addProduct();
+          });
+      },
+      addProduct: function(){
+        console.log('adding item');
+        this.fire('add_product', {product : this.product });
+      },
+      // add properties and methods on the element's prototype
+
+      properties: {
+        // declare properties for the element's public API
+        product : String
+      }
+    });
+  </script>
+
+</dom-module>

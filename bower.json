@@ -1,0 +1,19 @@
+{
+  "name": "hackathon-starter-sahat",
+  "version": "0.0.0",
+  "homepage": "https://github.com/wesleyduff/hackathon-starter-sahat",
+  "authors": [
+    "Wes A. Duff <slysop@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#1.0.0"
+  }
+}

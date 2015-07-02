@@ -68,6 +68,9 @@ app.use(compress());
 app.use(connectAssets({
   paths: [path.join(__dirname, 'public/css'), path.join(__dirname, 'public/js')]
 }));
+app.use('/static', express.static(path.join(process.cwd(), 'bower_components')))
+app.use('/polymer-lib/', express.static(path.join(process.cwd(), 'polymer_elements')))
+app.use('/images/', express.static(path.join(process.cwd(), 'public/images')))
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
